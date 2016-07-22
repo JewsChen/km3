@@ -19,30 +19,30 @@
 <div id="main" style="margin-left:20px;">
    <div class="btn-group btn-group-justified" role="group">
       <div class="btn-group" role="group" style="padding-right:20px;">
-        	<audio id="music1" src="mp3/01d.mp3" loop="loop">你的浏览器不支持audio标签。</audio>
+        	<audio id="music1" src="mp3/01d.mp3">你的浏览器不支持audio标签。</audio>
             <button type="button" onclick="javascript:playPause('music1');" id="music_btn1" style="height:150px;" class="btn btn-primary btn-lg">灯光(01)</button>
       </div>
       <div class="btn-group" role="group" style="padding-right:20px;">
-        	<audio id="music2" src="mp3/02d.mp3"  loop="loop">你的浏览器不支持audio标签。</audio>
+        	<audio id="music2" src="mp3/02d.mp3">你的浏览器不支持audio标签。</audio>
             <button onclick="javascript:playPause('music2');" type="button" id="music_btn2" style="height:150px;" class="btn btn-primary btn-lg">灯光(02)</button>
       </div>
       <div class="btn-group" role="group" style="padding-right:20px;">
-            <audio id="music3" src="mp3/03d.mp3"  loop="loop">你的浏览器不支持audio标签。</audio>
+            <audio id="music3" src="mp3/03d.mp3">你的浏览器不支持audio标签。</audio>
             <button onclick="javascript:playPause('music3');" type="button" id="music_btn3" style="height:150px;" class="btn btn-primary btn-lg">灯光(03)</button>
       </div>
     </div>
     
     <div class="btn-group btn-group-justified" role="group" style="margin-top:20px;">
       <div class="btn-group" role="group" style="padding-right:20px;">
-        	<audio id="music4" src="mp3/04d.mp3" loop="loop">你的浏览器不支持audio标签。</audio>
+        	<audio id="music4" src="mp3/04d.mp3">你的浏览器不支持audio标签。</audio>
                <button onclick="javascript:playPause('music4');" type="button" id="music_btn4" style="height:150px;" class="btn btn-primary btn-lg">灯光(04)</button>
       </div>
       <div class="btn-group" role="group" style="padding-right:20px;">
-        	<audio id="music5" src="mp3/05d.mp3"  loop="loop">你的浏览器不支持audio标签。</audio>
+        	<audio id="music5" src="mp3/05d.mp3">你的浏览器不支持audio标签。</audio>
             <button onclick="javascript:playPause('music5');" type="button" id="music_btn5" style="height:150px;" class="btn btn-primary btn-lg">灯光(05)</button>
       </div>
       <div class="btn-group" role="group" style="padding-right:20px;">
-            <audio id="music6" src="mp3/06d.mp3"  loop="loop">你的浏览器不支持audio标签。</audio>
+            <audio id="music6" src="mp3/06d.mp3">你的浏览器不支持audio标签。</audio>
             <button onclick="javascript:playPause('music6');" type="button" id="music_btn6" style="height:150px;" class="btn btn-primary btn-lg">灯光(06)</button>
       </div>
     </div>
@@ -55,23 +55,30 @@
 <script type="text/javascript">
 var temp = "";
 function playPause(music) {
+	if(temp && temp != "") {
+    	var tempMusic = document.getElementById(temp);
+		if(temp == music) {
+			if (!tempMusic.paused){
+				tempMusic.currentTime = 0;
+				tempMusic.pause();
+				return ;
+			}
+		}
+		if(!tempMusic.paused) {
+			tempMusic.currentTime = 0;
+			tempMusic.pause();
+		}
+    }
     temp = music;
     var music = document.getElementById(music);
     if (music.paused){
-    	
         music.play();
     } else{
     	music.pause();
-        music.paused();
+		music.currentTime = 0;
     }
-    if(!temp || temp == "") {
-    	return ;
-    }
-    var tempMusic = document.getElementById(temp);
-    if(!tempMusic.paused) {
-    	tempMusic.paused();
-    	tempMusic.pause();
-    }
+    
+   
 }
 </script>
 </body>
