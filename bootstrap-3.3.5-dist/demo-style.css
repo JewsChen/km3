@@ -1,0 +1,43 @@
+
+html, body, div, ul, li, a {
+    margin: 0;
+    padding: 0;
+}
+ul, li {
+    list-style: outside none none;
+}
+.nav-mse {
+    background-color: #2a2a2a;
+    height: 50px;
+    margin-bottom: 30px;
+    overflow: hidden;
+    width: 100%;
+}
+.nav-mse ul li {
+    float: right;
+}
+.nav-mse ul .right-mse {
+    float: left;
+}
+.nav-mse ul li a {
+    background-color: #2a2a2a;
+    border-radius: 0;
+    color: #fff;
+    display: block;
+    font-family: "microsoft yahei";
+    font-size: 18px;
+    height: 50px;
+    line-height: 50px;
+    padding: 0 18px;
+    position: relative;
+    transition: background-color 0.5s ease 0s;
+}
+.nav-mse ul li a {
+    text-decoration: none;
+}
+.nav-mse ul li a:hover {
+    background-color: #22aeec;
+    border-radius: 0;
+    color: #fff;
+    text-decoration: none;
+}
